@@ -1,14 +1,20 @@
 
 Playwright tests repo is an example of playwright tests implemented using PageObject pattern
 
-Installation
+## Installation
+```bash
 npm install
+```
+```bash
 npm init playwright@latest
+```
 
-Creds
+##Creds
 create  additional creds.json file
-e.g
+
+```bash
 {
     "email": "email",
     "password": "password"
 }
+```
