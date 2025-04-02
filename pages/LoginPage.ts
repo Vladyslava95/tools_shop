@@ -14,12 +14,12 @@ export class LoginPage {
 
     async navigateTo() {
         await this.page.goto('/auth/login')
-    }
+    };
 
     async login(){
         const authData = getAuthData();
         await this.email.fill(authData.email);
         await this.password.fill(authData.password);
         await this.loginButton.click();
-    } 
+    };
 }

@@ -45,7 +45,7 @@ test('Verify user can view product details', async ({ page }) => {
 
   });
 
-  test('Verify user can add product to cart', async ({ page }) => {
+  test('Verify  add product to cart', async ({ page }) => {
     const homePage = new HomePage(page);
     const productPage = new ProductPage(page);
     const loginPage = new LoginPage(page);
