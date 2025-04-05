@@ -15,18 +15,8 @@ export class HomePage {
     };
 
     async clickOnProduct(productName: string) {
-        await this.products.first().waitFor({ state: 'visible', timeout: 5000 });
-        const count = await this.products.count();
-
-        for (let i = 0; i < count; i++) {
-          const card = this.products.nth(i);
-          const text = await card.textContent();
-    
-          if (text?.includes(productName)) {
-            await card.click();
-            return;
-          }
-        }
+        await this.page.getByText(productName, { exact: true }).click({ timeout: 5000 });
+      
     };
     
 }
