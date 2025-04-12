@@ -9,7 +9,7 @@ test('Verify login with valid credentials', async ({ page }) => {
 
     await loginPage.navigateTo();
     await loginPage.login();
-    await expect(page).toHaveURL('/account');
+    expect(page).toHaveURL('/account');
     await loginPage.verifyPageTitle("My account");
     await loginPage.verifyAccountMenu("Jane Doe");
 
@@ -22,10 +22,10 @@ test('Verify user can view product details', async ({ page }) => {
 
     await loginPage.navigateTo();
     await loginPage.login();
-    await expect(page).toHaveURL('/account');
+    expect(page).toHaveURL('/account');
     await homePage.openHomepage();
     await homePage.clickOnProduct('Combination Pliers');
-    await expect(page.url()).toContain('/product');
+    expect(page.url()).toContain('/product');
     await productPage.verifyProductCard("Combination Pliers", "14.15")
 
   });
@@ -38,11 +38,11 @@ test('Verify user can view product details', async ({ page }) => {
 
     await loginPage.navigateTo();
     await loginPage.login();
-    await expect(page).toHaveURL('/account');
+    expect(page).toHaveURL('/account');
 
     await homePage.openHomepage();
     await homePage.clickOnProduct('Slip Joint Pliers');
-    await expect(page.url()).toContain('/product');
+    expect(page.url()).toContain('/product');
 
     await productPage.verifyProductCard("Slip Joint Pliers", "9.17")
     await productPage.addToCart();
@@ -50,6 +50,6 @@ test('Verify user can view product details', async ({ page }) => {
     await productPage.verifyIncreaseItemQty('1');
 
     await productPage.proceedToCheckout();
-    await expect(page).toHaveURL('/checkout');
+    expect(page).toHaveURL('/checkout');
     await checkoutPage.verifyProductCard('Slip Joint Pliers', 1 )
   });
