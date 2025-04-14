@@ -32,16 +32,8 @@ export class HomePage {
     };
 
     async getProductPrice(): Promise<number[]> {
-        const count = await this.productPrice.count();
-        const price: number[] = [];
-
-        for (let i = 0; i < count; i++) {
-            const priceText = await this.productPrice.innerText();
-            const numValue = parseFloat(priceText.replace('$', '').trim());
-            price.push(numValue);
-        }
-
-        return price;
+        const priceTexts = await this.productPrice.allInnerTexts();
+        return priceTexts.map(text => parseFloat(text.replace('$', '').trim()));
 
    };
 
