@@ -43,6 +43,7 @@ test('Verify user can view product details', async ({ app }) => {
     expect(actualSortDesc).toEqual(expectedSortDesc);
   });
 
+
   test('Product sorting by price', async ({ app }) => {
     await app.homepage.navigateTo();
     await app.homepage.sortProducts("price,asc");
@@ -54,4 +55,7 @@ test('Verify user can view product details', async ({ app }) => {
     const actualSortDesc = await app.homepage.getProductPrice();
     const expectedSortDesc = actualSortDesc.sort((a, b) => b - a);
     expect(actualSortDesc).toEqual(expectedSortDesc);
+    
   });
+
+  

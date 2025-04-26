@@ -2,6 +2,8 @@ import {Page, Locator} from "@playwright/test"
 import { SortOptions, SortComponent  } from "../components/sort.component";
 export class HomePage {
     
+
+
     private productName: Locator;
     private productPrice: Locator;
     private sortComponent: SortComponent;
@@ -9,7 +11,7 @@ export class HomePage {
     public constructor (private page: Page ) {
         
         this.productName = this.page.getByTestId('product-name');
-        this.productPrice = this.page.getByTestId('product-price');
+        this.productPrice = this.page.getByTestId('product-price')
         this.sortComponent = new SortComponent(page);
     };
     
