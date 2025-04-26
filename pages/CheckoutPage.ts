@@ -1,12 +1,11 @@
 import {Page, Locator, expect} from "@playwright/test"
 
 export class CheckOutPage {
+    
     private productName: Locator;
     private productQty: Locator;
     private checkOutButton: Locator;
    
-
-
     public constructor (private page: Page ) {
         this.productName = this.page.locator('[data-test="product-title"]');
         this.productQty = this.page.locator('[data-test="product-quantity"]');

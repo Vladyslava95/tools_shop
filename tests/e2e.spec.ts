@@ -52,4 +52,42 @@ test('Verify user can view product details', async ({ page }) => {
     await productPage.proceedToCheckout();
     expect(page).toHaveURL('/checkout');
     await checkoutPage.verifyProductCard('Slip Joint Pliers', 1 )
+
+
+  });
+
+  test('Product sorting by name', async ({ page }) => {
+    const homePage = new HomePage(page);
+    const loginPage = new LoginPage(page);
+
+    await loginPage.navigateTo();
+    await loginPage.login();
+    await homePage.openHomepage();
+    await homePage.sortProducts("name,asc");
+    const actualSortAsc = await homePage.getProductNames();
+    const expectedSortAsc = actualSortAsc.sort((a, b) => a.localeCompare(b));
+    expect(actualSortAsc).toEqual(expectedSortAsc);
+
+    await homePage.sortProducts("name,desc");
+    const actualSortDesc = await homePage.getProductNames();
+    const expectedSortDesc = actualSortDesc.sort((a, b) => b.localeCompare(a));
+    expect(actualSortDesc).toEqual(expectedSortDesc);
+  });
+
+  test('Product sorting by price', async ({ page }) => {
+    const homePage = new HomePage(page);
+    const loginPage = new LoginPage(page);
+
+    await loginPage.navigateTo();
+    await loginPage.login();
+    await homePage.openHomepage();
+    await homePage.sortProducts("price,asc");
+    const actualSortAsc = await homePage.getProductPrice();
+    const expectedSortAsc = actualSortAsc.sort((a, b) => a - b);
+    expect(actualSortAsc).toEqual(expectedSortAsc);
+
+    await homePage.sortProducts("price,desc");
+    const actualSortDesc = await homePage.getProductPrice();
+    const expectedSortDesc = actualSortAsc.sort((a, b) => b - a);
+    expect(actualSortDesc).toEqual(expectedSortDesc);
   });
