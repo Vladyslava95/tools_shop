@@ -7,9 +7,9 @@ export class CheckOutPage {
     private checkOutButton: Locator;
    
     public constructor (private page: Page ) {
-        this.productName = this.page.locator('[data-test="product-title"]');
-        this.productQty = this.page.locator('[data-test="product-quantity"]');
-        this.checkOutButton = this.page.locator('[data-test="proceed-1"]');
+        this.productName = this.page.getByTestId('product-title');
+        this.productQty = this.page.getByTestId('product-quantity');
+        this.checkOutButton = this.page.getByTestId('proceed-1');
     };
     
 

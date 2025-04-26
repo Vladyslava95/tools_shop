@@ -9,11 +9,11 @@ export class LoginPage {
     private pageTitle: Locator;
 
     public constructor (private page: Page ) {
-        this.email = this.page.locator('[data-test="email"]');
-        this.password = this.page.locator('[data-test="password"]');
-        this.loginButton = this.page.locator('[data-test="login-submit"]');
-        this.navMenu = this.page.locator('[data-test="nav-menu"]');
-        this.pageTitle = page.locator('[data-test="page-title"]');;
+        this.email = this.page.getByTestId('email');
+        this.password = this.page.getByTestId('password');
+        this.loginButton = this.page.getByTestId('login-submit');
+        this.navMenu = this.page.getByTestId('nav-menu');
+        this.pageTitle = page.getByTestId('page-title');;
     }
 
     async navigateTo() {

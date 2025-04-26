@@ -12,13 +12,13 @@ export class ProductPage {
 
 
     public constructor (private page: Page ) {
-        this.addToCartButton = this.page.locator('[data-test="add-to-cart"]');
-        this.cartIcon = this.page.locator('[data-test="nav-cart"]');
-        this.productTitle = this.page.locator('[data-test="product-name"]');
-        this.productPrice = this.page.locator('[data-test="unit-price"]');
-        this.favorites = this.page.locator('[data-test="add-to-favorites"]');
+        this.addToCartButton = this.page.getByTestId('add-to-cart');
+        this.cartIcon = this.page.getByTestId('nav-cart');
+        this.productTitle = this.page.getByTestId('product-name');
+        this.productPrice = this.page.getByTestId('unit-price');
+        this.favorites = this.page.getByTestId('add-to-favorites');
         this.alert = this.page.getByRole('alert');
-        this.itemQty = this.page.locator('[data-test="cart-quantity"]');
+        this.itemQty = this.page.getByTestId('cart-quantity');
     };
     
 
