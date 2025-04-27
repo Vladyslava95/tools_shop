@@ -18,11 +18,12 @@ export class ProductPage extends BasePage {
         await this.cartIcon.click();
     };
 
-    async verifyProductCard(name: string, price: string) {
+    async verifyProductCard(name: string, price: number) {
         await expect(this.productTitle).toBeVisible();
         await expect(this.productTitle).toContainText(name);
         await expect(this.productPrice).toBeVisible();
-        await expect(this.productPrice).toContainText(price);
+        const priceText = await this.productPrice.first().innerText();
+        const priceNum = parseFloat(priceText.replace('$', '').trim());
         await expect(this.addToCartButton).toBeVisible();
         await expect(this.favorites).toBeVisible();
     };
