@@ -1,26 +1,14 @@
 import {Page, Locator, expect} from "@playwright/test"
+import { BasePage } from "./BasePage";
 
-export class ProductPage {
-    private addToCartButton: Locator;
-    private cartIcon: Locator;
-    private productTitle: Locator;
-    private productPrice: Locator;
-    private favorites: Locator;
-    private alert: Locator;
-    private itemQty: Locator;
-   
-
-
-    public constructor (private page: Page ) {
-        this.addToCartButton = this.page.getByTestId('add-to-cart');
-        this.cartIcon = this.page.getByTestId('nav-cart');
-        this.productTitle = this.page.getByTestId('product-name');
-        this.productPrice = this.page.getByTestId('unit-price');
-        this.favorites = this.page.getByTestId('add-to-favorites');
-        this.alert = this.page.getByRole('alert');
-        this.itemQty = this.page.getByTestId('cart-quantity');
-    };
-    
+export class ProductPage extends BasePage {
+    private addToCartButton = this.page.getByTestId('add-to-cart');
+    private cartIcon = this.page.getByTestId('nav-cart');
+    private productTitle = this.page.getByTestId('product-name');
+    private productPrice = this.page.getByTestId('unit-price');
+    private favorites = this.page.getByTestId('add-to-favorites');
+    private alert = this.page.getByRole('alert');
+    private itemQty = this.page.getByTestId('cart-quantity');
 
     async addToCart() {
         await this.addToCartButton.click();

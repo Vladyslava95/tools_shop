@@ -1,5 +1,5 @@
 import { test as base } from '@playwright/test';
-import { Application } from '../pages/Application';
+import { Application } from '../pages/AppManager';
 
 export const test = base.extend<{
     app: Application;

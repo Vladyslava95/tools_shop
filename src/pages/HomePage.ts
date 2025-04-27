@@ -1,19 +1,12 @@
-import {Page, Locator} from "@playwright/test"
+import { BasePage } from "./BasePage";
 import { SortOptions, SortComponent  } from "../components/sort.component";
-export class HomePage {
+
+export class HomePage extends BasePage{
     
+    private productName = this.page.getByTestId('product-name');
+    private productPrice = this.page.getByTestId('product-price')
+    private sortComponent = new SortComponent(this.page);
 
-
-    private productName: Locator;
-    private productPrice: Locator;
-    private sortComponent: SortComponent;
-
-    public constructor (private page: Page ) {
-        
-        this.productName = this.page.getByTestId('product-name');
-        this.productPrice = this.page.getByTestId('product-price')
-        this.sortComponent = new SortComponent(page);
-    };
     
     async navigateTo() {
         await this.page.goto('')
@@ -37,6 +30,5 @@ export class HomePage {
         return priceTexts.map(text => parseFloat(text.replace('$', '').trim()));
 
    };
-
     
 }

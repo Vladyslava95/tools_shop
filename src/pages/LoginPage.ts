@@ -1,21 +1,15 @@
-import {Page, Locator, expect} from "@playwright/test";
+import {expect} from "@playwright/test";
 import { getAuthData } from '../../utils';
+import { BasePage } from "./BasePage";
 
 
-export class LoginPage {
-    private email: Locator;
-    private password: Locator;
-    private navMenu: Locator;
-    private loginButton: Locator;
-    private pageTitle: Locator;
+export class LoginPage extends BasePage {
+    private email =  this.page.getByTestId('email');
+    private password = this.page.getByTestId('password');
+    private navMenu = this.page.getByTestId('nav-menu');
+    private loginButton = this.page.getByTestId('login-submit');
+    private pageTitle = this.page.getByTestId('page-title');;
 
-    public constructor (private page: Page ) {
-        this.email = this.page.getByTestId('email');
-        this.password = this.page.getByTestId('password');
-        this.loginButton = this.page.getByTestId('login-submit');
-        this.navMenu = this.page.getByTestId('nav-menu');
-        this.pageTitle = page.getByTestId('page-title');;
-    }
 
     async navigateTo() {
         await this.page.goto('/auth/login')

@@ -1,17 +1,12 @@
-import {Page, Locator, expect} from "@playwright/test"
+import {expect} from "@playwright/test"
+import { BasePage } from "./BasePage";
 
-export class CheckOutPage {
+export class CheckOutPage extends BasePage {
     
-    private productName: Locator;
-    private productQty: Locator;
-    private checkOutButton: Locator;
-   
-    public constructor (private page: Page ) {
-        this.productName = this.page.getByTestId('product-title');
-        this.productQty = this.page.getByTestId('product-quantity');
-        this.checkOutButton = this.page.getByTestId('proceed-1');
-    };
-    
+    private productName = this.page.getByTestId('product-title');
+    private productQty = this.page.getByTestId('product-quantity');
+    private checkOutButton = this.page.getByTestId('proceed-1');
+
 
     async verifyProductCard(name: string, qty: number) {
         await expect(this.productName).toHaveText(name);
@@ -19,5 +14,6 @@ export class CheckOutPage {
         await expect(this.checkOutButton).toBeVisible();
     };
 
+};
+
     
-}
