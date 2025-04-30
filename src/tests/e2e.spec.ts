@@ -67,11 +67,11 @@ test('Verify user can view product details', async ({ app }) => {
      await loggedInApp.productpage.addToCart();
      await loggedInApp.productpage.proceedToCheckout();
      await loggedInApp.checkoutpage.verifyProductCard(name, 1, price);
-     await loggedInApp.checkoutpage.proceedToCheckout();
-     await loggedInApp.checkoutpage.proceedToCheckout2();
-     await loggedInApp.checkoutpage.proceedToCheckout3();
+     await loggedInApp.checkoutpage.cartstep.proceedToCheckout();
+     await loggedInApp.checkoutpage.signinstep.proceedToCheckout();
+     await loggedInApp.checkoutpage.billingstep.proceedToCheckout();
      await loggedInApp.checkoutpage.selectPayment('credit-card');
-     await loggedInApp.checkoutpage.enterCardData('1111-1111-1111-1111', '09/2028', '111', 'Joe Done',)
+     await loggedInApp.checkoutpage.enterCardData();
      await loggedInApp.checkoutpage.confirmPayment();
   });
 
