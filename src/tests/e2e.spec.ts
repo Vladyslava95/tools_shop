@@ -7,18 +7,15 @@ test('Verify login with valid credentials', async ({app }) => {
     await app.login.login();
     await app.login.verifyPageTitle("My account");
     await app.login.verifyAccountMenu("Jane Doe");
-
   });
 
 test('Verify user can view product details', async ({ app }) => {
     await app.homepage.navigateTo();
     await app.homepage.clickOnProduct('Combination Pliers');
-    await app.productpage.verifyProductCard("Combination Pliers", 14.15)
-
+    await app.productpage.verifyProductCard("Combination Pliers", 14.15);
   });
 
   test('Verify  add product to cart', async ({ app }) => {
-
     await app.homepage.navigateTo();
     await app.homepage.clickOnProduct('Slip Joint Pliers');
     await app.productpage.verifyProductCard("Slip Joint Pliers", 9.17)
@@ -43,7 +40,6 @@ test('Verify user can view product details', async ({ app }) => {
     expect(actualSortDesc).toEqual(expectedSortDesc);
   });
 
-
   test('Product sorting by price', async ({ app }) => {
     await app.homepage.navigateTo();
     await app.homepage.sortProducts("price,asc");
@@ -55,11 +51,9 @@ test('Verify user can view product details', async ({ app }) => {
     const actualSortDesc = await app.homepage.getProductPrice();
     const expectedSortDesc = actualSortDesc.sort((a, b) => b - a);
     expect(actualSortDesc).toEqual(expectedSortDesc);
-    
   });
 
   test('Verify chekout flow', async ({ loggedInApp }) => {
-
      await loggedInApp.login.verifyAccountMenu("Jane Doe");
      await loggedInApp.homepage.openHomePage();
      const { name, price} = await loggedInApp.homepage.addFirstProductToCart();

@@ -31,23 +31,23 @@ export class HomePage extends BasePage{
         const priceTexts = await this.productPrice.allInnerTexts();
         return priceTexts.map(text => parseFloat(text.replace('$', '').trim()));
 
-   };
+    };
 
-   async addFirstProductToCart(): Promise<{ name: string; price: number }> {
-    const count = await this.productCards.count();
+    async addFirstProductToCart(): Promise<{ name: string; price: number }> {
+        const count = await this.productCards.count();
 
-    const product = this.productCards.first();
-    const name = await this.productName.first().innerText();
-    const priceText = await this.productPrice.first().innerText();
-    const price = parseFloat(priceText.replace('$', '').trim());
+        const product = this.productCards.first();
+        const name = await this.productName.first().innerText();
+        const priceText = await this.productPrice.first().innerText();
+        const price = parseFloat(priceText.replace('$', '').trim());
 
-    await product.click();
+        await product.click();
 
-    return { name, price };
-}
+        return { name, price }; 
+    }
 
-async openHomePage() {
-    await this.homePage.click();
-};
+    async openHomePage() {
+        await this.homePage.click();
+    };
     
 }

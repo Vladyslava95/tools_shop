@@ -33,7 +33,7 @@ export class CheckOutPage extends BasePage {
 
   async selectPayment(paymentMethod: PaymentOptions) {
     await this.paymentMethod.selectPaymentMethod(paymentMethod);
-  };
+};
 
   async enterCardData() {
     const paymentData = getPaymentData();
