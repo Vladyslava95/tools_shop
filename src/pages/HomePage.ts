@@ -44,10 +44,26 @@ export class HomePage extends BasePage{
         await product.click();
 
         return { name, price }; 
-    }
+    };
 
     async openHomePage() {
         await this.homePage.click();
+    };
+
+    async mockProductsResponse(json: unknown): Promise<void> {
+        await this.page.route('https://api.practicesoftwaretesting.com/products*', async route => {
+            await route.fulfill({
+              status: 200,
+              contentType: 'application/json',
+              body: JSON.stringify(json),
+            });
+        });
+    };
+
+    async getProductCount() {
+        const count = await this.productCards.count();
+        return count;
+ 
     };
     
 }

@@ -6,7 +6,7 @@ export const test = base.extend<{
     app: Application;
     loggedInApp: Application;
 }>({
-    app: async ({ browser, page }, use) => {
+    app: async ({ browser, page, }, use) => {
         test.info().annotations.push({
             type: 'Browser',
             description: `${browser.browserType().name()} ${browser.version()}`,
@@ -35,5 +35,6 @@ export const test = base.extend<{
       
           await use(app);
     },
+
 
 });
