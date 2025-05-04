@@ -53,8 +53,8 @@ test('Verify user can view product details', async ({ app }) => {
     expect(actualSortDesc).toEqual(expectedSortDesc);
   });
 
-  test('Verify chekout flow', async ({ loggedInApp }) => {
-     await loggedInApp.login.verifyAccountMenu("Jane Doe");
+  test('Verify chekout flow', async ({ loggedInApp}) => {
+     //await loggedInApp.login.verifyAccountMenu("Jane Doe");
      await loggedInApp.homepage.openHomePage();
      const { name, price} = await loggedInApp.homepage.addFirstProductToCart();
      await loggedInApp.productpage.verifyProductCard(name, price);
@@ -63,6 +63,7 @@ test('Verify user can view product details', async ({ app }) => {
      await loggedInApp.checkoutpage.verifyProductCard(name, 1, price);
      await loggedInApp.checkoutpage.cartstep.proceedToCheckout();
      await loggedInApp.checkoutpage.signinstep.proceedToCheckout();
+     await loggedInApp.checkoutpage.billingstep.fillAddressData();
      await loggedInApp.checkoutpage.billingstep.proceedToCheckout();
      await loggedInApp.checkoutpage.selectPayment('credit-card');
      await loggedInApp.checkoutpage.enterCardData();

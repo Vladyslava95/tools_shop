@@ -28,37 +28,35 @@ export class CheckOutPage extends BasePage {
         const priceText = await this.productPrice.first().innerText();
         const priceNum = parseFloat(priceText.replace('$', '').trim());
     };
-
     
+    async selectPayment(paymentMethod: PaymentOptions) {
+      await this.paymentMethod.selectPaymentMethod(paymentMethod);
+  };
 
-  async selectPayment(paymentMethod: PaymentOptions) {
-    await this.paymentMethod.selectPaymentMethod(paymentMethod);
-};
+    async enterCardData() {
+      const paymentData = getPaymentData();
+      await this.creditCardNum.fill(paymentData.cardNum);
+      await this.expDate.fill(paymentData.expDate);
+      await this.cvv.fill(paymentData.cvv);
+      await this.holderName.fill(paymentData.cardHolder);
+  };
 
-  async enterCardData() {
-    const paymentData = getPaymentData();
-    await this.creditCardNum.fill(paymentData.cardNum);
-    await this.expDate.fill(paymentData.expDate);
-    await this.cvv.fill(paymentData.cvv);
-    await this.holderName.fill(paymentData.cardHolder);
-};
+    async confirmPayment() {
+        await this.confirmButton.click();
+        await expect(this.paymentSuccesMessage).toBeVisible();
+    };
 
-async confirmPayment() {
-    await this.confirmButton.click();
-    await expect(this.paymentSuccesMessage).toBeVisible();
-};
+    get cartstep() {
+      return this.cartStep;
+    };
 
-  get cartstep() {
-    return this.cartStep;
-  }
+    get signinstep() {
+      return this.signinStep;
+    };
 
-  get signinstep() {
-    return this.signinStep;
-  }
-
-  get billingstep() {
-    return this.billingStep;
-  }
+    get billingstep() {
+      return this.billingStep;
+    };
 
 }
 
