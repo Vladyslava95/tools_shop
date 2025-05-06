@@ -33,7 +33,7 @@ export class HomePage extends BasePage{
 
     };
 
-    async addFirstProductToCart(): Promise<{ name: string; price: number }> {
+    async selectFirstProduct(): Promise<{ name: string; price: number }> {
         const count = await this.productCards.count();
 
         const product = this.productCards.first();
