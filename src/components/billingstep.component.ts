@@ -25,11 +25,11 @@ export class BillingStep {
 
     async fillAddressData() {
         const addressData = getAddressData();
-        await this.address.fill(addressData.address);
+        await this.address.fill(addressData.street);
         await this.city.fill(addressData.city);
         await this.state.fill(addressData.state);
         await this.country.fill(addressData.country);
-        await this.postcode.fill(addressData.postcode);
+        await this.postcode.fill(addressData.code);
     };
 
 }
