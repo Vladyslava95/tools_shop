@@ -1,7 +1,9 @@
 import { expect } from '@playwright/test';
 import { test } from '../fixture/base';
 
-  test('Verify login with valid credentials', async ({app }) => {
+  test('Verify login with valid credentials', {
+    tag: '@smoke',
+  }, async ({app }) => {
       await test.step('Open Login page', async () => {
         await app.login.navigateTo();
       });
@@ -13,7 +15,9 @@ import { test } from '../fixture/base';
       });
     });
 
-  test('Verify user can view product details', async ({ app }) => {
+  test('Verify user can view product details', {
+    tag: '@smoke',
+  }, async ({ app }) => {
       await test.step('Open Home page', async () => {
         await app.homepage.navigateTo();
         await app.homepage.clickOnProduct('Combination Pliers');
@@ -21,7 +25,9 @@ import { test } from '../fixture/base';
       });
     });
 
-  test('Verify  add product to cart', async ({ app }) => {
+  test('Verify  add product to cart', {
+    tag: '@smoke',
+  }, async ({ app }) => {
     await test.step('Open Home page', async () => {
       await app.homepage.navigateTo();
     });
@@ -44,7 +50,9 @@ import { test } from '../fixture/base';
 
   });
 
-  test('Product sorting by name', async ({ app }) => {
+  test('Product sorting by name', {
+    tag: '@smoke',
+  }, async ({ app }) => {
     await test.step('Open Home page', async () => {
       await app.homepage.navigateTo();
     });
@@ -64,7 +72,9 @@ import { test } from '../fixture/base';
     });
   });
 
-  test('Product sorting by price', async ({ app }) => {
+  test('Product sorting by price',{
+    tag: '@smoke',
+  }, async ({ app }) => {
     await test.step('Open Home page', async () => {
       await app.homepage.navigateTo();
     });
@@ -84,7 +94,9 @@ import { test } from '../fixture/base';
     });
   });
 
-  test('Verify chekout flow', async ({ loggedInApp}) => {
+  test('Verify chekout flow', {
+    tag: '@smoke',
+  }, async ({ loggedInApp}) => {
     let name: string;
     let price: number;
 
