@@ -1,6 +1,6 @@
 import { test as base, expect } from '@playwright/test';
-import { Application } from '../pages/AppManager';
-import { getAuthData } from '../../utils';
+import { Application } from '../pages/app.manager.ts';
+import { getAuthData } from '../../utilities/utils.ts';
 
 export const test = base.extend<{
     app: Application;

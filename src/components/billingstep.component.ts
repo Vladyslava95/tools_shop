@@ -1,23 +1,15 @@
 import {Page, Locator} from "@playwright/test"
-import { getAddressData } from "../../utils";
+import { getAddressData } from "../../utilities/utils.ts";
+import { BaseComponent } from './base.component.ts';
 
-export class BillingStep {
+export class BillingStep extends BaseComponent {
 
-    private checkoutButton: Locator;
-    private address: Locator;
-    private city: Locator;
-    private state: Locator;
-    private country: Locator;
-    private postcode: Locator;
-
-    public constructor (private page: Page ) {
-        this.checkoutButton = this.page.getByTestId('proceed-3');   
-        this.address = this.page.getByTestId('street');
-        this.city = this.page.getByTestId('city');
-        this.state = this.page.getByTestId('state');
-        this.country = this.page.getByTestId('country');
-        this.postcode = this.page.getByTestId('postal_code');
-    };
+    private checkoutButton = this.page.getByTestId('proceed-3'); 
+    private address = this.page.getByTestId('street');
+    private city = this.page.getByTestId('city');
+    private state = this.page.getByTestId('state');
+    private country = this.page.getByTestId('country');
+    private postcode = this.page.getByTestId('postal_code');
 
     async proceedToCheckout() {
         await this.checkoutButton.click();

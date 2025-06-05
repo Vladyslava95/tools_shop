@@ -1,13 +1,8 @@
-import {Page, Locator} from "@playwright/test"
+import { BaseComponent } from './base.component.ts';
 
+export class CartStep extends BaseComponent {
 
-export class CartStep {
-
-    private checkoutButton: Locator;
-
-    public constructor (private page: Page ) {
-        this.checkoutButton = this.page.getByTestId('proceed-1');    
-    };
+    private checkoutButton = this.page.getByTestId('proceed-1'); 
 
     async proceedToCheckout() {
         await this.checkoutButton.click();
