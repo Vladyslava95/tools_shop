@@ -1,6 +1,6 @@
 import { expect } from '@playwright/test';
 import { test } from '../fixture/base';
-import jsonMock from '../../products.mock.json'
+import jsonMock from "../../utilities/products.mock.json";
 
   test('Mock product data and verify product showing on page', async ({ app }) => {
     await app.homepage.mockProductsResponse(jsonMock);

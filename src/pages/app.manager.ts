@@ -1,19 +1,12 @@
 import { Page as page } from '@playwright/test';
+import { BasePage } from './base.page.ts';
 import { LoginPage } from './login.ts';
 import { HomePage } from './home.ts';
 import {CheckOutPage} from './checkout.ts';
 import {ProductPage} from './products.ts';
 
-
-class BasePage {
-    protected page: page;
-
-    constructor(page: page) {
-        this.page = page;
-    }
-}
-
 export class Application extends BasePage {
+
     public login: LoginPage;
     public homepage: HomePage;
     public checkoutpage: CheckOutPage;
