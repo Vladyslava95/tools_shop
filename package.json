@@ -5,9 +5,12 @@
   "scripts": {},
   "author": "",
   "license": "ISC",
-  "description": "",
+  "description": "Playwright tests repo is an example of playwright tests implemented using PageObject pattern",
   "devDependencies": {
-    "@playwright/test": "^1.52.0",
+    "@playwright/test": "^1.53.0",
     "@types/node": "^22.15.29"
+  },
+  "directories": {
+    "test": "tests"
   }
 }
