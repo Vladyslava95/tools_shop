@@ -121,16 +121,16 @@ import { test } from '../fixture/base';
     });
 
     await test.step('Proceed to car step', async () => {
-      await loggedInApp.checkoutpage.cartstep.proceedToCheckout();
+      await loggedInApp.checkoutpage.cartStep.proceedToCheckout();
     });
 
     await test.step('Proceed to sign in step', async () => {
-      await loggedInApp.checkoutpage.signinstep.proceedToCheckout();
+      await loggedInApp.checkoutpage.signinStep.proceedToCheckout();
     });
 
     await test.step('Proceed to  billing step', async () => {
-      await loggedInApp.checkoutpage.billingstep.fillAddressData();
-      await loggedInApp.checkoutpage.billingstep.proceedToCheckout();
+      await loggedInApp.checkoutpage.billingStep.fillAddressData();
+      await loggedInApp.checkoutpage.billingStep.proceedToCheckout();
       await loggedInApp.checkoutpage.selectPayment('credit-card');
       await loggedInApp.checkoutpage.enterCardData();
       await loggedInApp.checkoutpage.confirmPayment();
