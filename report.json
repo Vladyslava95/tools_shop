@@ -1,7 +1,7 @@
 {
   "config": {
-    "configFile": "/Users/vladislavaterehova/Desktop/autoproject/ToolShop/tools_shop/playwright.config.ts",
-    "rootDir": "/Users/vladislavaterehova/Desktop/autoproject/ToolShop/tools_shop/src/tests",
+    "configFile": "/Users/vladislavaterehova/Desktop/autoproject/tools_shop/tools_shop/playwright.config.ts",
+    "rootDir": "/Users/vladislavaterehova/Desktop/autoproject/tools_shop/tools_shop/src/tests",
     "forbidOnly": false,
     "fullyParallel": true,
     "globalSetup": null,
@@ -39,7 +39,7 @@
     "quiet": false,
     "projects": [
       {
-        "outputDir": "/Users/vladislavaterehova/Desktop/autoproject/ToolShop/tools_shop/test-results",
+        "outputDir": "/Users/vladislavaterehova/Desktop/autoproject/tools_shop/tools_shop/test-results",
         "repeatEach": 1,
         "retries": 0,
         "metadata": {
@@ -47,7 +47,7 @@
         },
         "id": "chromium",
         "name": "chromium",
-        "testDir": "/Users/vladislavaterehova/Desktop/autoproject/ToolShop/tools_shop/src/tests",
+        "testDir": "/Users/vladislavaterehova/Desktop/autoproject/tools_shop/tools_shop/src/tests",
         "testIgnore": [],
         "testMatch": [
           "**/*.@(spec|test).?(c|m)[jt]s?(x)"
@@ -58,7 +58,7 @@
     "shard": null,
     "updateSnapshots": "missing",
     "updateSourceMethod": "3way",
-    "version": "1.52.0",
+    "version": "1.53.0",
     "workers": 1,
     "webServer": null
   },
@@ -70,16 +70,18 @@
       "line": 0,
       "specs": [
         {
-          "title": "Verify chekout flow",
+          "title": "Verify login with valid credentials",
           "ok": true,
-          "tags": [],
+          "tags": [
+            "smoke"
+          ],
           "tests": [
             {
               "timeout": 30000,
               "annotations": [
                 {
                   "type": "Browser",
-                  "description": "chromium 136.0.7103.25"
+                  "description": "chromium 138.0.7204.15"
                 }
               ],
               "expectedStatus": "passed",
@@ -87,10 +89,66 @@
               "projectName": "chromium",
               "results": [
                 {
-                  "workerIndex": 16,
+                  "workerIndex": 1,
                   "parallelIndex": 0,
                   "status": "passed",
-                  "duration": 9477,
+                  "duration": 1956,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "steps": [
+                    {
+                      "title": "Open Login page",
+                      "duration": 750
+                    },
+                    {
+                      "title": "Log in to account",
+                      "duration": 976
+                    }
+                  ],
+                  "startTime": "2025-06-12T09:10:25.927Z",
+                  "annotations": [
+                    {
+                      "type": "Browser",
+                      "description": "chromium 138.0.7204.15"
+                    }
+                  ],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "b1c7859d981cc20c96be-62ff84cf61ce0efdb42f",
+          "file": "e2e.spec.ts",
+          "line": 4,
+          "column": 7
+        },
+        {
+          "title": "Verify user can view product details",
+          "ok": true,
+          "tags": [
+            "smoke"
+          ],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [
+                {
+                  "type": "Browser",
+                  "description": "chromium 138.0.7204.15"
+                }
+              ],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1153,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
@@ -98,38 +156,274 @@
                   "steps": [
                     {
                       "title": "Open Home page",
-                      "duration": 951
-                    },
-                    {
-                      "title": "Select first product",
-                      "duration": 860
-                    },
-                    {
-                      "title": "Add  product to the cart",
-                      "duration": 54
-                    },
-                    {
-                      "title": "Proceed to Checkout",
-                      "duration": 6259
-                    },
-                    {
-                      "title": "Proceed to car step",
-                      "duration": 67
-                    },
-                    {
-                      "title": "Proceed to sign in step",
-                      "duration": 67
-                    },
-                    {
-                      "title": "Proceed to  billing step",
-                      "duration": 563
+                      "duration": 1028
                     }
                   ],
-                  "startTime": "2025-05-12T18:26:29.779Z",
+                  "startTime": "2025-06-12T09:10:28.124Z",
                   "annotations": [
                     {
                       "type": "Browser",
-                      "description": "chromium 136.0.7103.25"
+                      "description": "chromium 138.0.7204.15"
+                    }
+                  ],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "b1c7859d981cc20c96be-380a30128f0405fe7051",
+          "file": "e2e.spec.ts",
+          "line": 18,
+          "column": 7
+        },
+        {
+          "title": "Verify  add product to cart",
+          "ok": true,
+          "tags": [
+            "smoke"
+          ],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [
+                {
+                  "type": "Browser",
+                  "description": "chromium 138.0.7204.15"
+                }
+              ],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 8765,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "steps": [
+                    {
+                      "title": "Open Home page",
+                      "duration": 309
+                    },
+                    {
+                      "title": "Select product",
+                      "duration": 613
+                    },
+                    {
+                      "title": "Add product to the cart",
+                      "duration": 6807
+                    },
+                    {
+                      "title": "Procee to checkout",
+                      "duration": 916
+                    }
+                  ],
+                  "startTime": "2025-06-12T09:10:29.281Z",
+                  "annotations": [
+                    {
+                      "type": "Browser",
+                      "description": "chromium 138.0.7204.15"
+                    }
+                  ],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "b1c7859d981cc20c96be-30f8e6dd7f7944d0e22b",
+          "file": "e2e.spec.ts",
+          "line": 28,
+          "column": 7
+        },
+        {
+          "title": "Product sorting by name",
+          "ok": true,
+          "tags": [
+            "smoke"
+          ],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [
+                {
+                  "type": "Browser",
+                  "description": "chromium 138.0.7204.15"
+                }
+              ],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 715,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "steps": [
+                    {
+                      "title": "Open Home page",
+                      "duration": 533
+                    },
+                    {
+                      "title": "Sort product by name asc",
+                      "duration": 37
+                    },
+                    {
+                      "title": "Sort product by name desc",
+                      "duration": 12
+                    }
+                  ],
+                  "startTime": "2025-06-12T09:10:38.049Z",
+                  "annotations": [
+                    {
+                      "type": "Browser",
+                      "description": "chromium 138.0.7204.15"
+                    }
+                  ],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "b1c7859d981cc20c96be-03001aa6d41104b000ce",
+          "file": "e2e.spec.ts",
+          "line": 53,
+          "column": 7
+        },
+        {
+          "title": "Product sorting by price",
+          "ok": true,
+          "tags": [
+            "smoke"
+          ],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [
+                {
+                  "type": "Browser",
+                  "description": "chromium 138.0.7204.15"
+                }
+              ],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 608,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "steps": [
+                    {
+                      "title": "Open Home page",
+                      "duration": 433
+                    },
+                    {
+                      "title": "Sort product by price asc",
+                      "duration": 25
+                    },
+                    {
+                      "title": "Sort product by price desc",
+                      "duration": 9
+                    }
+                  ],
+                  "startTime": "2025-06-12T09:10:38.767Z",
+                  "annotations": [
+                    {
+                      "type": "Browser",
+                      "description": "chromium 138.0.7204.15"
+                    }
+                  ],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "b1c7859d981cc20c96be-d2241ca49b26858b6b2b",
+          "file": "e2e.spec.ts",
+          "line": 75,
+          "column": 7
+        },
+        {
+          "title": "Verify chekout flow",
+          "ok": true,
+          "tags": [
+            "smoke"
+          ],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [
+                {
+                  "type": "Browser",
+                  "description": "chromium 138.0.7204.15"
+                }
+              ],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 8314,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "steps": [
+                    {
+                      "title": "Open Home page",
+                      "duration": 236
+                    },
+                    {
+                      "title": "Select first product",
+                      "duration": 735
+                    },
+                    {
+                      "title": "Add  product to the cart",
+                      "duration": 19
+                    },
+                    {
+                      "title": "Proceed to Checkout",
+                      "duration": 6242
+                    },
+                    {
+                      "title": "Proceed to car step",
+                      "duration": 24
+                    },
+                    {
+                      "title": "Proceed to sign in step",
+                      "duration": 17
+                    },
+                    {
+                      "title": "Proceed to  billing step",
+                      "duration": 566
+                    }
+                  ],
+                  "startTime": "2025-06-12T09:10:39.378Z",
+                  "annotations": [
+                    {
+                      "type": "Browser",
+                      "description": "chromium 138.0.7204.15"
                     }
                   ],
                   "attachments": []
@@ -140,7 +434,7 @@
           ],
           "id": "b1c7859d981cc20c96be-2fc6c4cb9ac6d0aaa0f6",
           "file": "e2e.spec.ts",
-          "line": 87,
+          "line": 97,
           "column": 7
         }
       ]
@@ -148,9 +442,9 @@
   ],
   "errors": [],
   "stats": {
-    "startTime": "2025-05-12T18:26:29.227Z",
-    "duration": 10393.576000000117,
-    "expected": 1,
+    "startTime": "2025-06-12T09:10:25.482Z",
+    "duration": 22227.612000000023,
+    "expected": 6,
     "skipped": 0,
     "unexpected": 0,
     "flaky": 0
