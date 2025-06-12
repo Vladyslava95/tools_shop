@@ -12,9 +12,9 @@ export class CheckOutPage extends BasePage {
     private productQty = this.page.getByTestId('product-quantity');
     private productPrice = this.page.getByTestId('product-price');
     private paymentMethod = new PaymentComponent(this.page);
-    private cartStep = new CartStep(this.page);
-    private billingStep = new BillingStep (this.page);
-    private signinStep = new SigninStep(this.page);
+    public cartStep = new CartStep(this.page);
+    public billingStep = new BillingStep (this.page);
+    public signinStep = new SigninStep(this.page);
     private creditCardNum = this.page.getByTestId('credit_card_number');
     private expDate = this.page.getByTestId('expiration_date');
     private cvv = this.page.getByTestId('cvv');
@@ -46,17 +46,6 @@ export class CheckOutPage extends BasePage {
         await expect(this.paymentSuccesMessage).toBeVisible();
     };
 
-    get cartstep() {
-      return this.cartStep;
-    };
-
-    get signinstep() {
-      return this.signinStep;
-    };
-
-    get billingstep() {
-      return this.billingStep;
-    };
 
 }
 
