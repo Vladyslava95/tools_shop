@@ -12,5 +12,8 @@
   },
   "directories": {
     "test": "tests"
+  },
+  "dependencies": {
+    "typescript": "^5.8.3"
   }
 }
